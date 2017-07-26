@@ -36,13 +36,13 @@ Packagist: [pluswerk/cache-automation](https://packagist.org/packages/pluswerk/c
 
 Configure a cache agent for your extension in your `ext_localconf.php`.
 
-> A cache agent is triggered, if a database record of the given table has changed.
+> A cache agent is triggered, if a database record of the given tables has changed.
 
 Example:
 
 ```php
-\Pluswerk\CacheAutomation\Service\Configuration::getInstance()->addAgentForTable(
-    'tx_news_domain_model_news', // database table name
+\Pluswerk\CacheAutomation\Service\Configuration::getInstance()->addAgentForTables(
+    ['tx_news_domain_model_news'], // database table name
     \Pluswerk\CacheAutomation\Agents\SimplePluginAgent::class, // cache agent
     [
         // cache agent configuration
@@ -58,8 +58,8 @@ Example:
 This agent flush the cache of all pages which have a content element with the given plugin keys.
 
 ```php
-\Pluswerk\CacheAutomation\Service\Configuration::getInstance()->addAgentForTable(
-    'tx_news_domain_model_news',
+\Pluswerk\CacheAutomation\Service\Configuration::getInstance()->addAgentForTables(
+    ['tx_news_domain_model_news'],
     \Pluswerk\CacheAutomation\Agents\SimplePluginAgent::class,
     [
         'pluginKeys' => ['news_pi1'],
@@ -72,8 +72,8 @@ This agent flush the cache of all pages which have a content element with the gi
 This agent flush the cache of all pages which are in the TYPO3 "rootline" of the given pages.
 
 ```php
-\Pluswerk\CacheAutomation\Service\Configuration::getInstance()->addAgentForTable(
-    'tx_news_domain_model_news',
+\Pluswerk\CacheAutomation\Service\Configuration::getInstance()->addAgentForTables(
+    ['tx_news_domain_model_news'],
     \Pluswerk\CacheAutomation\Agents\PageRootlineAgent::class,
     [
         'rootPages' => [42, 316],

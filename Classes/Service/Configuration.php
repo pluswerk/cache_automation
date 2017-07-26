@@ -37,19 +37,21 @@ class Configuration implements SingletonInterface
     }
 
     /**
-     * @param string $table
+     * @param string[] $tables
      * @param string $agent
      * @param array $agentConfiguration
      */
-    public function addAgentForTable(string $table, string $agent, array $agentConfiguration = [])
+    public function addAgentForTables(array $tables, string $agent, array $agentConfiguration = [])
     {
-        if (!isset($this->tableConfigs[$table])) {
-            $this->tableConfigs[$table] = [];
+        foreach ($tables as $table) {
+            if (!isset($this->tableConfigs[$table])) {
+                $this->tableConfigs[$table] = [];
+            }
+            $this->tableConfigs[$table][] = [
+                'agent' => $agent,
+                'agentConfiguration' => $agentConfiguration,
+            ];
         }
-        $this->tableConfigs[$table][] = [
-            'agent' => $agent,
-            'agentConfiguration' => $agentConfiguration,
-        ];
     }
 
     /**
