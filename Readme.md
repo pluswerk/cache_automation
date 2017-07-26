@@ -1,5 +1,6 @@
-[![Packagist Release](https://img.shields.io/packagist/v/pluswerk/cache-automation.svg)](https://packagist.org/packages/pluswerk/cache-automation)
-[![GitHub License](https://img.shields.io/github/license/pluswerk/cache_automation.svg)](https://github.com/pluswerk/cache_automation/blob/master/LICENSE.txt)
+[![Packagist Release](https://img.shields.io/packagist/v/pluswerk/cache-automation.svg?style=flat-square)](https://packagist.org/packages/pluswerk/cache-automation)
+[![GitHub License](https://img.shields.io/github/license/pluswerk/cache_automation.svg?style=flat-square)](https://github.com/pluswerk/cache_automation/blob/master/LICENSE.txt)
+[![Code Climate](https://img.shields.io/codeclimate/github/pluswerk/cache_automation.svg?style=flat-square)](https://codeclimate.com/github/pluswerk/cache_automation)
 
 # TYPO3 Extension: Cache Automation
 
