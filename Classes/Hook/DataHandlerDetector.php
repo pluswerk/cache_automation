@@ -48,14 +48,14 @@ class DataHandlerDetector implements SingletonInterface
     }
 
     /**
-     * @param string $status
-     * @param string $table
-     * @param int $id
-     * @param array $changedFields
-     * @param DataHandler $dataHandler
+     * @param string $status The status of the record
+     * @param string $table Database table name
+     * @param int|string $id The uid of the record or something like "NEW59785a1ec52" if the record is new
+     * @param array $changedFields Field value map of the changed fields
+     * @param DataHandler $dataHandler Reference back to the DataHandler
      * @throws \Exception
      */
-    public function processDatamap_afterDatabaseOperations($status, string $table, int $id, array $changedFields, DataHandler $dataHandler)
+    public function processDatamap_afterDatabaseOperations($status, string $table, $id, array $changedFields, DataHandler $dataHandler)
     {
         $expiredPages = [];
         if ($this->configuration->isConfigured($table)) {

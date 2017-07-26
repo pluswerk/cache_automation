@@ -37,12 +37,12 @@ class PageRootlineAgent extends AbstractAgent
      * ]
      *
      * @param string $table
-     * @param int $uid
+     * @param int|string $uid
      * @param array $agentConfiguration
      * @param array $changedFields
      * @return int[]
      */
-    public function getExpiredPages(string $table, int $uid, array $agentConfiguration, array $changedFields): array
+    public function getExpiredPages(string $table, $uid, array $agentConfiguration, array $changedFields): array
     {
         $pagesUidList = [];
         $depth = isset($agentConfiguration['depth']) ? $agentConfiguration['depth'] : 99;

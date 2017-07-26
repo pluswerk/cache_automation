@@ -19,11 +19,11 @@ namespace Pluswerk\CacheAutomation\Agents;
 interface AgentInterface
 {
     /**
-     * @param string $table
-     * @param int $uid
-     * @param array $agentConfiguration
-     * @param array $changedFields
+     * @param string $table Database table name
+     * @param int|string $uid The uid of the record or something like "NEW59785a1ec52" if the record is new
+     * @param array $agentConfiguration The agent configuration array
+     * @param array $changedFields Field value map of the changed fields
      * @return int[]
      */
-    public function getExpiredPages(string $table, int $uid, array $agentConfiguration, array $changedFields): array;
+    public function getExpiredPages(string $table, $uid, array $agentConfiguration, array $changedFields): array;
 }
