@@ -1,4 +1,5 @@
 [![Packagist Release](https://img.shields.io/packagist/v/pluswerk/cache-automation.svg?style=flat-square)](https://packagist.org/packages/pluswerk/cache-automation)
+[![Travis](https://img.shields.io/travis/pluswerk/cache_automation.svg?style=flat-square)](https://travis-ci.org/pluswerk/cache_automation)
 [![GitHub License](https://img.shields.io/github/license/pluswerk/cache_automation.svg?style=flat-square)](https://github.com/pluswerk/cache_automation/blob/master/LICENSE.txt)
 [![Code Climate](https://img.shields.io/codeclimate/github/pluswerk/cache_automation.svg?style=flat-square)](https://codeclimate.com/github/pluswerk/cache_automation)
 
