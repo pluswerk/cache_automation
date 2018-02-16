@@ -12,7 +12,7 @@ if (!defined('TYPO3_MODE')) {
     die('Access denied.');
 }
 
-call_user_func(function() use ($_EXTKEY) {
+call_user_func(function () use ($_EXTKEY) {
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processCmdmapClass'][$_EXTKEY] = \Pluswerk\CacheAutomation\Hook\DataHandlerDetector::class;
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][$_EXTKEY] = \Pluswerk\CacheAutomation\Hook\DataHandlerDetector::class;
 });

@@ -22,5 +22,16 @@
     "cache_automation": "self.version",
     "typo3-ter/cache_automation": "self.version",
     "typo3-ter/cache-automation": "self.version"
+  },
+  "require-dev": {
+    "pluswerk/grumphp-config": "2.*"
+  },
+  "extra": {
+    "pluswerk/grumphp-config": {
+      "auto-setting": true
+    },
+    "grumphp": {
+      "config-default-path": "vendor/pluswerk/grumphp-config/grumphp.yml"
+    }
   }
 }
