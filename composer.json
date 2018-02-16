@@ -1,11 +1,11 @@
 {
   "name": "pluswerk/cache-automation",
   "type": "typo3-cms-extension",
-  "version": "1.1.1",
-  "description": "TYPO3 Extension: Cache Automation - This TYPO3 extension clear caches automated in the right moment.",
+  "version": "1.1.2",
+  "description": "+Pluswerk TYPO3 extension: Cache Automation - This TYPO3 extension clear caches automated in the right moment.",
   "homepage": "https://www.pluswerk.ag/",
   "support": {
-    "source": "https://github.com/pluswerk/cache_automation.git",
+    "source": "https://github.com/pluswerk/cache_automation/",
     "issues": "https://github.com/pluswerk/cache_automation/issues",
     "docs": "https://github.com/pluswerk/cache_automation/blob/master/README.md"
   },
