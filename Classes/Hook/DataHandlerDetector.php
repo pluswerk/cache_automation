@@ -47,6 +47,7 @@ class DataHandlerDetector implements SingletonInterface
         $this->cacheService = $objectManager->get(CacheService::class);
     }
 
+    // @codingStandardsIgnoreStart
     /**
      * @param string $status The status of the record
      * @param string $table Database table name
@@ -57,6 +58,7 @@ class DataHandlerDetector implements SingletonInterface
      */
     public function processDatamap_afterDatabaseOperations($status, string $table, $id, array $changedFields, DataHandler $dataHandler)
     {
+        // @codingStandardsIgnoreEnd
         $expiredPages = [];
         if ($this->configuration->isConfigured($table)) {
             $agentConfigurations = $this->configuration->getAgentsForTable($table);
