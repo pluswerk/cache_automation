@@ -1,11 +1,9 @@
 <?php
 
-namespace Pluswerk\Project\Agents;
+namespace Pluswerk\CacheAutomation\Agents;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Core\Database\QueryGenerator;
-use \Pluswerk\CacheAutomation\Agents\AbstractAgent;
 
 class PageMovedAgent extends AbstractAgent
 {
