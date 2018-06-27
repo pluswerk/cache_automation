@@ -99,7 +99,13 @@ class DataHandlerDetector implements SingletonInterface
         }
 
         if (count($expiredPages) !== 0) {
-            $this->cacheService->clearPageCache(array_unique($expiredPages));
+            $expiredPages = array_unique($expiredPages);
+            // TODO: use new API in TYPO3 V9
+            $extensionConfiguration = $extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['cache_automation']);
+            $arrayChunks = array_chunk($expiredPages, $extensionConfiguration['numberOfCachedPagesToClear']);
+            foreach ($arrayChunks as $singleChunk) {
+                $this->cacheService->clearPageCache($singleChunk);
+            }
         }
     }
 }
