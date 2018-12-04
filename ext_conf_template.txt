@@ -1,0 +1,2 @@
+# cat=basic/enable; type=string; label=Number of cached pages that will be cleared in one chunk
+numberOfCachedPagesToClear =

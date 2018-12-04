@@ -58,7 +58,32 @@ class DataHandlerDetector implements SingletonInterface
      */
     public function processDatamap_afterDatabaseOperations($status, string $table, $id, array $changedFields, DataHandler $dataHandler)
     {
-        // @codingStandardsIgnoreEnd
+        $this->clearCachedPagesFoundByAgents($table, $id, $changedFields);
+
+    }
+
+    /**
+     * @param string $status The status of the record
+     * @param string $table Database table name
+     * @param int|string $id The uid of the record or something like "NEW59785a1ec52" if the record is new
+     * @param int $pageIdentifier The id of the page
+     * @throws \Exception
+     */
+    public function processCmdmap_postProcess($status, $table, $id, $pageIdentifier)
+    {
+        $this->clearCachedPagesFoundByAgents($table, $id, ['uid' => $pageIdentifier]);
+
+    }
+
+    /**
+     * @param string $table
+     * @param $id
+     * @param array $changedFields of an array containing just the uid of a page
+     * @throws \Exception
+     */
+    protected function clearCachedPagesFoundByAgents(string $table, $id, array $changedFields)
+    {
+// @codingStandardsIgnoreEnd
         $expiredPages = [];
         if ($this->configuration->isConfigured($table)) {
             $agentConfigurations = $this->configuration->getAgentsForTable($table);
@@ -74,7 +99,13 @@ class DataHandlerDetector implements SingletonInterface
         }
 
         if (count($expiredPages) !== 0) {
-            $this->cacheService->clearPageCache(array_unique($expiredPages));
+            $expiredPages = array_unique($expiredPages);
+            // TODO: use new API in TYPO3 V9
+            $extensionConfiguration = $extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['cache_automation']);
+            $arrayChunks = array_chunk($expiredPages, $extensionConfiguration['numberOfCachedPagesToClear']);
+            foreach ($arrayChunks as $singleChunk) {
+                $this->cacheService->clearPageCache($singleChunk);
+            }
         }
     }
 }
