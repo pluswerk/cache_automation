@@ -14,7 +14,7 @@ With this TYPO3 extension you can cache for example an extbase "list and show" p
 You can write your own magic cache agent.
 
 
-Requires TYPO3 8.7
+Requires TYPO3 8.7 up to TYPO3 9
 
 Issue tracking: [GitHub: TYPO3 Cache Automation](https://github.com/pluswerk/cache_automation/issues)
 

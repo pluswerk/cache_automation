@@ -32,7 +32,7 @@ class Configuration implements SingletonInterface
     public static function getInstance(): Configuration
     {
         /** @var Configuration $config */
-        $config = GeneralUtility::makeInstance(Configuration::class);
+        $config = GeneralUtility::makeInstance(__CLASS__);
         return $config;
     }
 
@@ -41,7 +41,7 @@ class Configuration implements SingletonInterface
      * @param string $agent
      * @param array $agentConfiguration
      */
-    public function addAgentForTables(array $tables, string $agent, array $agentConfiguration = [])
+    public function addAgentForTables(array $tables, string $agent, array $agentConfiguration = []): void
     {
         foreach ($tables as $table) {
             if (!isset($this->tableConfigs[$table])) {

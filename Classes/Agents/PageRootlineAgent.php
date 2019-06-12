@@ -44,15 +44,20 @@ class PageRootlineAgent extends AbstractAgent
      */
     public function getExpiredPages(string $table, $uid, array $agentConfiguration, array $changedFields): array
     {
-        $pagesUidList = [];
-        $depth = isset($agentConfiguration['depth']) ? $agentConfiguration['depth'] : 99;
-        $begin = isset($agentConfiguration['begin']) ? $agentConfiguration['begin'] : 0;
-        foreach ($agentConfiguration['rootPages'] as $rootPage) {
+        $pagesUidList = '';
+        $depth = $agentConfiguration['depth'] ?? 99;
+        $begin = $agentConfiguration['begin'] ?? 0;
+        foreach ($agentConfiguration['rootPages'] as &$rootPage) {
             /** @var QueryGenerator $queryGenerator */
             $queryGenerator = GeneralUtility::makeInstance(QueryGenerator::class);
             $pages = $queryGenerator->getTreeList($rootPage, $depth, $begin, 1);
-            $pagesUidList = array_merge($pagesUidList, explode(',', $pages));
+            if ($pagesUidList !== '') {
+                $pagesUidList .= ',';
+            }
+            $pagesUidList .= $pages;
+
         }
-        return $pagesUidList;
+
+        return array_flip(array_flip(explode(',', $pagesUidList)));
     }
 }

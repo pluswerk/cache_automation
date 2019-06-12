@@ -10,7 +10,8 @@
   },
   "license": "GPL-3.0+",
   "require": {
-    "typo3/cms-core": ">=8.7 <9.6"
+    "typo3/cms-core": ">=8.7 <9.6",
+    "php": ">=7.1"
   },
   "autoload": {
     "psr-4": {

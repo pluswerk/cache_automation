@@ -24,7 +24,7 @@ abstract class AbstractAgent implements AgentInterface
     /**
      * @var ConnectionPool
      */
-    protected $connectionPool = null;
+    protected $connectionPool;
 
     /**
      * AbstractAgent constructor.
