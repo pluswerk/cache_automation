@@ -1,7 +1,5 @@
 <?php
 
-namespace Pluswerk\CacheAutomation\Hook;
-
 /***
  * This file is part of an +Pluswerk AG Extension for TYPO3 CMS.
  *
@@ -10,6 +8,8 @@ namespace Pluswerk\CacheAutomation\Hook;
  *
  * (c) 2017 Markus Hölzle <markus.hoelzle@pluswerk.ag>, +Pluswerk AG
  ***/
+
+namespace Pluswerk\CacheAutomation\Hook;
 
 use Pluswerk\CacheAutomation\Agents\AgentInterface;
 use Pluswerk\CacheAutomation\Service\Configuration;
@@ -56,7 +56,8 @@ class DataHandlerDetector implements SingletonInterface
      * @param array $changedFields Field value map of the changed fields
      * @param DataHandler $dataHandler Reference back to the DataHandler
      * @throws \RuntimeException
-     */// phpcs:ignore
+     */
+    // phpcs:ignore
     public function processDatamap_afterDatabaseOperations(/** @noinspection PhpUnusedParameterInspection */ string $status, string $table, $id, array $changedFields, DataHandler $dataHandler): void
     {
         $expiredPages = [];

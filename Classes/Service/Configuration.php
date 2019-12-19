@@ -1,5 +1,4 @@
 <?php
-namespace Pluswerk\CacheAutomation\Service;
 
 /***
  * This file is part of an +Pluswerk AG Extension for TYPO3 CMS.
@@ -9,6 +8,8 @@ namespace Pluswerk\CacheAutomation\Service;
  *
  * (c) 2017 Markus Hölzle <markus.hoelzle@pluswerk.ag>, +Pluswerk AG
  ***/
+
+namespace Pluswerk\CacheAutomation\Service;
 
 use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
