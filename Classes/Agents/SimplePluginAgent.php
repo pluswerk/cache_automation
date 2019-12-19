@@ -1,5 +1,4 @@
 <?php
-namespace Pluswerk\CacheAutomation\Agents;
 
 /***
  * This file is part of an +Pluswerk AG Extension for TYPO3 CMS.
@@ -9,6 +8,10 @@ namespace Pluswerk\CacheAutomation\Agents;
  *
  * (c) 2017 Markus Hölzle <markus.hoelzle@pluswerk.ag>, +Pluswerk AG
  ***/
+
+namespace Pluswerk\CacheAutomation\Agents;
+
+use Doctrine\DBAL\FetchMode;
 
 /**
  * Class SimplePluginAgent
@@ -44,7 +47,7 @@ class SimplePluginAgent extends AbstractAgent
             ->from('tt_content')
             ->where($queryBuilder->expr()->in('list_type', $pluginKeys))
             ->execute()
-            ->fetchAll(\PDO::FETCH_COLUMN);
+            ->fetchAll(FetchMode::COLUMN);
         return $pagesUidList;
     }
 }
