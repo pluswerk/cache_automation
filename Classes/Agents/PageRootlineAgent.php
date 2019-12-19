@@ -55,7 +55,6 @@ class PageRootlineAgent extends AbstractAgent
                 $pagesUidList .= ',';
             }
             $pagesUidList .= $pages;
-
         }
 
         return array_flip(array_flip(explode(',', $pagesUidList)));

@@ -56,7 +56,7 @@ class DataHandlerDetector implements SingletonInterface
      * @param array $changedFields Field value map of the changed fields
      * @param DataHandler $dataHandler Reference back to the DataHandler
      * @throws \RuntimeException
-     */
+     */// phpcs:ignore
     public function processDatamap_afterDatabaseOperations(/** @noinspection PhpUnusedParameterInspection */ string $status, string $table, $id, array $changedFields, DataHandler $dataHandler): void
     {
         $expiredPages = [];
