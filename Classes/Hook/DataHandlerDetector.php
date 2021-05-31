@@ -57,7 +57,7 @@ class DataHandlerDetector implements SingletonInterface
      * @param DataHandler $dataHandler Reference back to the DataHandler
      * @throws \RuntimeException
      */
-    // phpcs:ignore
+    // @phpcs:ignore PSR1.Methods.CamelCapsMethodName
     public function processDatamap_afterDatabaseOperations(/** @noinspection PhpUnusedParameterInspection */ string $status, string $table, $id, array $changedFields, DataHandler $dataHandler): void
     {
         $expiredPages = [];

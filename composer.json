@@ -10,8 +10,8 @@
   },
   "license": "GPL-3.0+",
   "require": {
-    "typo3/cms-core": ">=8.7 <9.6",
-    "php": ">=7.1"
+    "typo3/cms-core": ">=8.7 <10.4",
+    "php": ">=7.2"
   },
   "autoload": {
     "psr-4": {
@@ -19,12 +19,12 @@
     }
   },
   "replace": {
-    "cache_automation": "self.version",
+    "pluswerk/cache_automation": "self.version",
     "typo3-ter/cache_automation": "self.version",
     "typo3-ter/cache-automation": "self.version"
   },
   "require-dev": {
-    "pluswerk/grumphp-config": "2.*"
+    "pluswerk/grumphp-config": "4.*"
   },
   "extra": {
     "pluswerk/grumphp-config": {

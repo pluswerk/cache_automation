@@ -1,4 +1,6 @@
 <?php
+
+// @phpstan-ignore-next-line
 $EM_CONF[$_EXTKEY] = [
     'title' => '+Pluswerk: Cache Automation',
     'description' => 'The extension clear caches with some magic automated in the right moment',
@@ -16,7 +18,7 @@ $EM_CONF[$_EXTKEY] = [
     'version' => '1.2.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '8.7.0-9.5.99',
+            'typo3' => '8.7.0-10.4.99',
         ],
         'conflicts' => [],
     ],
