@@ -1,5 +1,6 @@
 <?php
-$EM_CONF[$_EXTKEY] = [
+
+$EM_CONF['cache_automation'] = [
     'title' => '+Pluswerk: Cache Automation',
     'description' => 'The extension clear caches with some magic automated in the right moment',
     'category' => 'be',
