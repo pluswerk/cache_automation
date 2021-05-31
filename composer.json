@@ -24,7 +24,7 @@
     "typo3-ter/cache-automation": "self.version"
   },
   "require-dev": {
-    "pluswerk/grumphp-config": "2.*"
+    "pluswerk/grumphp-config": "4.*"
   },
   "extra": {
     "pluswerk/grumphp-config": {
