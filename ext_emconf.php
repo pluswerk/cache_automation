@@ -1,6 +1,7 @@
 <?php
 
-$EM_CONF['cache_automation'] = [
+// @phpstan-ignore-next-line
+$EM_CONF[$_EXTKEY] = [
     'title' => '+Pluswerk: Cache Automation',
     'description' => 'The extension clear caches with some magic automated in the right moment',
     'category' => 'be',
