@@ -19,7 +19,7 @@
     }
   },
   "replace": {
-    "cache_automation": "self.version",
+    "pluswerk/cache_automation": "self.version",
     "typo3-ter/cache_automation": "self.version",
     "typo3-ter/cache-automation": "self.version"
   },
