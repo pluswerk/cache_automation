@@ -51,7 +51,7 @@ final class PageRootlineAgent extends AbstractAgent
         foreach ($agentConfiguration['rootPages'] as &$rootPage) {
             /** @var QueryGenerator $queryGenerator */
             $queryGenerator = GeneralUtility::makeInstance(QueryGenerator::class);
-            $pages = $queryGenerator->getTreeList($rootPage, $depth, $begin, 1);
+            $pages = $queryGenerator->getTreeList($rootPage, $depth, $begin, '1');
             if ($pagesUidList !== '') {
                 $pagesUidList .= ',';
             }

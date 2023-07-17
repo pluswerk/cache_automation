@@ -36,7 +36,6 @@ final class Configuration implements SingletonInterface
 
     /**
      * @param string[] $tables
-     * @param string $agent
      * @param array<mixed> $agentConfiguration
      */
     public function addAgentForTables(array $tables, string $agent, array $agentConfiguration = []): void
@@ -59,7 +58,6 @@ final class Configuration implements SingletonInterface
     }
 
     /**
-     * @param string $table
      * @return array<mixed>
      */
     public function getAgentsForTable(string $table): array
