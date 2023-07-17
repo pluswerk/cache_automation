@@ -31,8 +31,8 @@ final class SimplePluginAgent extends AbstractAgent
      *
      * @param string $table
      * @param int|string $uid
-     * @param array $agentConfiguration
-     * @param array $changedFields
+     * @param array<mixed> $agentConfiguration
+     * @param array<mixed> $changedFields
      * @return int[]
      */
     public function getExpiredPages(string $table, $uid, array $agentConfiguration, array $changedFields): array

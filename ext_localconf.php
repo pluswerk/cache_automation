@@ -1,7 +1,5 @@
 <?php
 
-use Pluswerk\CacheAutomation\Hook\DataHandlerDetector;
-
 /***
  * This file is part of an +Pluswerk AG Extension for TYPO3 CMS.
  *
@@ -10,6 +8,8 @@ use Pluswerk\CacheAutomation\Hook\DataHandlerDetector;
  *
  * (c) 2017 Markus Hölzle <markus.hoelzle@pluswerk.ag>, +Pluswerk AG
  ***/
+
+use Pluswerk\CacheAutomation\Hook\DataHandlerDetector;
 
 if (!defined('TYPO3')) {
     die('Access denied.');

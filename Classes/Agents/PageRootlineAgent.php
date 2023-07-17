@@ -39,8 +39,8 @@ final class PageRootlineAgent extends AbstractAgent
      *
      * @param string $table
      * @param int|string $uid
-     * @param array $agentConfiguration
-     * @param array $changedFields
+     * @param array<mixed> $agentConfiguration
+     * @param array<mixed> $changedFields
      * @return int[]
      */
     public function getExpiredPages(string $table, $uid, array $agentConfiguration, array $changedFields): array
@@ -59,6 +59,6 @@ final class PageRootlineAgent extends AbstractAgent
             $pagesUidList .= $pages;
         }
 
-        return array_flip(array_flip(explode(',', $pagesUidList)));
+        return array_flip(array_flip(array_map('intval', explode(',', $pagesUidList))));
     }
 }

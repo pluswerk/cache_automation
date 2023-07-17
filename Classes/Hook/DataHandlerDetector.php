@@ -46,7 +46,7 @@ final readonly class DataHandlerDetector implements SingletonInterface
      * @param string $status The status of the record
      * @param string $table Database table name
      * @param int|string $id The uid of the record or something like "NEW59785a1ec52" if the record is new
-     * @param array $changedFields Field value map of the changed fields
+     * @param array<mixed> $changedFields Field value map of the changed fields
      * @param DataHandler $dataHandler Reference back to the DataHandler
      * @throws \RuntimeException
      */
@@ -57,7 +57,6 @@ final readonly class DataHandlerDetector implements SingletonInterface
         if ($this->configuration->isConfigured($table)) {
             $agentConfigurations = $this->configuration->getAgentsForTable($table);
             foreach ($agentConfigurations as $agentConfiguration) {
-                /** @var AgentInterface $agent */
                 $agent = GeneralUtility::makeInstance($agentConfiguration['agent']);
                 if ($agent instanceof AgentInterface) {
                     $expiredPages = $agent->getExpiredPages($table, $id, $agentConfiguration['agentConfiguration'], $changedFields);

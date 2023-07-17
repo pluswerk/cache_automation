@@ -23,7 +23,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 final class Configuration implements SingletonInterface
 {
     /**
-     * @var array[][]
+     * @var array<string, mixed>
      */
     private array $tableConfigs = [];
 
@@ -36,6 +36,8 @@ final class Configuration implements SingletonInterface
 
     /**
      * @param string[] $tables
+     * @param string $agent
+     * @param array<mixed> $agentConfiguration
      */
     public function addAgentForTables(array $tables, string $agent, array $agentConfiguration = []): void
     {
@@ -56,6 +58,10 @@ final class Configuration implements SingletonInterface
         return isset($this->tableConfigs[$table]);
     }
 
+    /**
+     * @param string $table
+     * @return array<mixed>
+     */
     public function getAgentsForTable(string $table): array
     {
         return $this->tableConfigs[$table];
