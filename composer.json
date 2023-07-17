@@ -1,37 +1,42 @@
 {
   "name": "pluswerk/cache-automation",
-  "type": "typo3-cms-extension",
   "description": "+Pluswerk TYPO3 extension: Cache Automation - This TYPO3 extension clear caches automated in the right moment.",
+  "license": "GPL-3.0+",
+  "type": "typo3-cms-extension",
+  "version": "dev-",
   "homepage": "https://www.pluswerk.ag/",
   "support": {
-    "source": "https://github.com/pluswerk/cache_automation/",
     "issues": "https://github.com/pluswerk/cache_automation/issues",
+    "source": "https://github.com/pluswerk/cache_automation/",
     "docs": "https://github.com/pluswerk/cache_automation/blob/master/README.md"
   },
-  "license": "GPL-3.0+",
   "require": {
-    "typo3/cms-core": ">=8.7 <10.5",
-    "php": ">=7.2"
+    "php": "~8.2.0",
+    "typo3/cms-core": "^11.5 || ^12.4"
+  },
+  "require-dev": {
+    "pluswerk/grumphp-config": "^6.7",
+    "saschaegerer/phpstan-typo3": "^1.8.2",
+    "ssch/typo3-rector": "^1.1.3"
   },
   "autoload": {
     "psr-4": {
       "Pluswerk\\CacheAutomation\\": "Classes/"
     }
   },
-  "replace": {
-    "pluswerk/cache_automation": "self.version",
-    "typo3-ter/cache_automation": "self.version",
-    "typo3-ter/cache-automation": "self.version"
-  },
-  "require-dev": {
-    "pluswerk/grumphp-config": "4.*"
+  "config": {
+    "allow-plugins": {
+      "typo3/cms-composer-installers": true,
+      "typo3/class-alias-loader": true,
+      "phpro/grumphp": true,
+      "phpstan/extension-installer": true,
+      "ergebnis/composer-normalize": true,
+      "pluswerk/grumphp-config": true
+    }
   },
   "extra": {
-    "pluswerk/grumphp-config": {
-      "auto-setting": true
-    },
-    "grumphp": {
-      "config-default-path": "vendor/pluswerk/grumphp-config/grumphp.yml"
+    "typo3/cms": {
+      "extension-key": "cache_automation"
     }
   }
 }

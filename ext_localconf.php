@@ -1,5 +1,7 @@
 <?php
 
+use Pluswerk\CacheAutomation\Hook\DataHandlerDetector;
+
 /***
  * This file is part of an +Pluswerk AG Extension for TYPO3 CMS.
  *
@@ -9,11 +11,11 @@
  * (c) 2017 Markus Hölzle <markus.hoelzle@pluswerk.ag>, +Pluswerk AG
  ***/
 
-if (!defined('TYPO3_MODE')) {
+if (!defined('TYPO3')) {
     die('Access denied.');
 }
 
-call_user_func(function () {
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processCmdmapClass']['cache_automation'] = \Pluswerk\CacheAutomation\Hook\DataHandlerDetector::class;
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass']['cache_automation'] = \Pluswerk\CacheAutomation\Hook\DataHandlerDetector::class;
+call_user_func(static function (): void {
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processCmdmapClass']['cache_automation'] = DataHandlerDetector::class;
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass']['cache_automation'] = DataHandlerDetector::class;
 });

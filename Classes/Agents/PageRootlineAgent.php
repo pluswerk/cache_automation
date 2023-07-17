@@ -20,7 +20,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * @author Markus Hölzle <markus.hoelzle@pluswerk.ag>
  * @package Pluswerk\CacheAutomation\Agents
  */
-class PageRootlineAgent extends AbstractAgent
+final class PageRootlineAgent extends AbstractAgent
 {
     /**
      * Clear caches from all pages which has the configured pages in "rootline".
@@ -55,6 +55,7 @@ class PageRootlineAgent extends AbstractAgent
             if ($pagesUidList !== '') {
                 $pagesUidList .= ',';
             }
+
             $pagesUidList .= $pages;
         }
 

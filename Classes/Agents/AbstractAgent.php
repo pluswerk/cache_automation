@@ -22,10 +22,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 abstract class AbstractAgent implements AgentInterface
 {
-    /**
-     * @var ConnectionPool
-     */
-    protected $connectionPool;
+    protected ConnectionPool $connectionPool;
 
     /**
      * AbstractAgent constructor.

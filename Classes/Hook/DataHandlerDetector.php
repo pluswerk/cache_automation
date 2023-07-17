@@ -26,18 +26,11 @@ use RuntimeException;
  * @author Markus Hölzle <markus.hoelzle@pluswerk.ag>
  * @package Pluswerk\CacheAutomation\Hook
  */
-class DataHandlerDetector implements SingletonInterface
+final readonly class DataHandlerDetector implements SingletonInterface
 {
+    private Configuration $configuration;
 
-    /**
-     * @var Configuration
-     */
-    protected $configuration;
-
-    /**
-     * @var CacheService
-     */
-    protected $cacheService;
+    private CacheService $cacheService;
 
     /**
      * DataHandlerHook constructor.
@@ -58,7 +51,7 @@ class DataHandlerDetector implements SingletonInterface
      * @throws \RuntimeException
      */
     // @phpcs:ignore PSR1.Methods.CamelCapsMethodName
-    public function processDatamap_afterDatabaseOperations(/** @noinspection PhpUnusedParameterInspection */ string $status, string $table, $id, array $changedFields, DataHandler $dataHandler): void
+    public function processDatamap_afterDatabaseOperations(/** @noinspection PhpUnusedParameterInspection */ string $status, string $table, int|string $id, array $changedFields, DataHandler $dataHandler): void
     {
         $expiredPages = [];
         if ($this->configuration->isConfigured($table)) {
@@ -73,6 +66,7 @@ class DataHandlerDetector implements SingletonInterface
                 }
             }
         }
+
         if (count($expiredPages) !== 0) {
             $this->cacheService->clearPageCache(array_unique($expiredPages));
         }
