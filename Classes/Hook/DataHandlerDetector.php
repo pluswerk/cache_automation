@@ -57,7 +57,9 @@ final readonly class DataHandlerDetector implements SingletonInterface
         if ($this->configuration->isConfigured($table)) {
             $agentConfigurations = $this->configuration->getAgentsForTable($table);
             foreach ($agentConfigurations as $agentConfiguration) {
-                $agent = GeneralUtility::makeInstance($agentConfiguration['agent']);
+                $agentClass = $agentConfiguration['agent'];
+                /** @var class-string $agentClass */
+                $agent = GeneralUtility::makeInstance($agentClass);
                 if ($agent instanceof AgentInterface) {
                     $expiredPages = $agent->getExpiredPages($table, $id, $agentConfiguration['agentConfiguration'], $changedFields);
                 } else {
