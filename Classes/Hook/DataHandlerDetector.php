@@ -16,7 +16,6 @@ use Pluswerk\CacheAutomation\Service\Configuration;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Service\CacheService;
 use RuntimeException;
 
@@ -30,16 +29,12 @@ final readonly class DataHandlerDetector implements SingletonInterface
 {
     private Configuration $configuration;
 
-    private CacheService $cacheService;
-
     /**
      * DataHandlerHook constructor.
      */
-    public function __construct()
+    public function __construct(private CacheService $cacheService)
     {
         $this->configuration = Configuration::getInstance();
-        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
-        $this->cacheService = $objectManager->get(CacheService::class);
     }
 
     /**
