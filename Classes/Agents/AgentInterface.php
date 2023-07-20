@@ -22,8 +22,8 @@ interface AgentInterface
     /**
      * @param string $table Database table name
      * @param int|string $uid The uid of the record or something like "NEW59785a1ec52" if the record is new
-     * @param array $agentConfiguration The agent configuration array
-     * @param array $changedFields Field value map of the changed fields
+     * @param array<mixed> $agentConfiguration The agent configuration array
+     * @param array<mixed> $changedFields Field value map of the changed fields
      * @return int[]
      */
     public function getExpiredPages(string $table, $uid, array $agentConfiguration, array $changedFields): array;

@@ -19,7 +19,7 @@ use Doctrine\DBAL\FetchMode;
  * @author Markus Hölzle <markus.hoelzle@pluswerk.ag>
  * @package Pluswerk\CacheAutomation\Agents
  */
-class SimplePluginAgent extends AbstractAgent
+final class SimplePluginAgent extends AbstractAgent
 {
     /**
      * Clear caches from pages which contain the configured plugins.
@@ -31,8 +31,8 @@ class SimplePluginAgent extends AbstractAgent
      *
      * @param string $table
      * @param int|string $uid
-     * @param array $agentConfiguration
-     * @param array $changedFields
+     * @param array<mixed> $agentConfiguration
+     * @param array<mixed> $changedFields
      * @return int[]
      */
     public function getExpiredPages(string $table, $uid, array $agentConfiguration, array $changedFields): array
@@ -42,12 +42,12 @@ class SimplePluginAgent extends AbstractAgent
         foreach ($agentConfiguration['pluginKeys'] as $pluginKey) {
             $pluginKeys[] = $queryBuilder->createNamedParameter($pluginKey);
         }
-        $pagesUidList = $queryBuilder
+
+        return $queryBuilder
             ->select('pid')
             ->from('tt_content')
             ->where($queryBuilder->expr()->in('list_type', $pluginKeys))
-            ->execute()
-            ->fetchAll(FetchMode::COLUMN);
-        return $pagesUidList;
+            ->executeQuery()
+            ->fetchFirstColumn();
     }
 }

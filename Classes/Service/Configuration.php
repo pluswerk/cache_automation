@@ -20,27 +20,23 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * @author Markus Hölzle <markus.hoelzle@pluswerk.ag>
  * @package Pluswerk\CacheAutomation\Service
  */
-class Configuration implements SingletonInterface
+final class Configuration implements SingletonInterface
 {
     /**
-     * @var array[][]
+     * @var array<string, mixed>
      */
-    protected $tableConfigs = [];
+    private array $tableConfigs = [];
 
-    /**
-     * @return Configuration
-     */
     public static function getInstance(): Configuration
     {
         /** @var Configuration $config */
-        $config = GeneralUtility::makeInstance(__CLASS__);
+        $config = GeneralUtility::makeInstance(self::class);
         return $config;
     }
 
     /**
      * @param string[] $tables
-     * @param string $agent
-     * @param array $agentConfiguration
+     * @param array<mixed> $agentConfiguration
      */
     public function addAgentForTables(array $tables, string $agent, array $agentConfiguration = []): void
     {
@@ -48,6 +44,7 @@ class Configuration implements SingletonInterface
             if (!isset($this->tableConfigs[$table])) {
                 $this->tableConfigs[$table] = [];
             }
+
             $this->tableConfigs[$table][] = [
                 'agent' => $agent,
                 'agentConfiguration' => $agentConfiguration,
@@ -55,18 +52,13 @@ class Configuration implements SingletonInterface
         }
     }
 
-    /**
-     * @param string $table
-     * @return bool
-     */
     public function isConfigured(string $table): bool
     {
         return isset($this->tableConfigs[$table]);
     }
 
     /**
-     * @param string $table
-     * @return array
+     * @return array<mixed>
      */
     public function getAgentsForTable(string $table): array
     {
