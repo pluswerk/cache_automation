@@ -15,10 +15,9 @@ $EM_CONF[$_EXTKEY] = [
     'author' => 'Markus Hölzle',
     'author_email' => 'markus.hoelzle@pluswerk.ag',
     'author_company' => '+Pluswerk AG',
-    'version' => '1.3.2',
     'constraints' => [
         'depends' => [
-            'typo3' => '8.7.0-11.99.99',
+            'typo3' => '11.4.0-12.99.99',
         ],
         'conflicts' => [],
     ],
