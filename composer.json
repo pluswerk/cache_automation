@@ -1,5 +1,6 @@
 {
   "name": "pluswerk/cache-automation",
+  "abandoned": "andersundsehr/cache-automation",
   "description": "+Pluswerk TYPO3 extension: Cache Automation - This TYPO3 extension clear caches automated in the right moment.",
   "license": "GPL-3.0+",
   "type": "typo3-cms-extension",
