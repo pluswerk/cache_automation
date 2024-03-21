@@ -1,3 +1,19 @@
+# Deprecated
+
+> .  
+> .  
+> .  
+> .  
+> Use [andersundsehr/cache-automation](https://github.com/andersundsehr/cache-automation) instead  
+> .  
+> .  
+> .  
+> .  
+> .  
+> .  
+> .  
+
+
 [![Packagist Release](https://img.shields.io/packagist/v/pluswerk/cache-automation.svg?style=flat-square)](https://packagist.org/packages/pluswerk/cache-automation)
 [![Travis](https://img.shields.io/travis/pluswerk/cache_automation.svg?style=flat-square)](https://travis-ci.org/pluswerk/cache_automation)
 [![GitHub License](https://img.shields.io/github/license/pluswerk/cache_automation.svg?style=flat-square)](https://github.com/pluswerk/cache_automation/blob/master/LICENSE.txt)
