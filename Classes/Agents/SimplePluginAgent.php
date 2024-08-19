@@ -1,26 +1,15 @@
 <?php
 
-/***
- * This file is part of an +Pluswerk AG Extension for TYPO3 CMS.
- *
- * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * (c) 2017 Markus Hölzle <markus.hoelzle@pluswerk.ag>, +Pluswerk AG
- ***/
-
 namespace Pluswerk\CacheAutomation\Agents;
 
-use Doctrine\DBAL\FetchMode;
+use TYPO3\CMS\Core\Database\ConnectionPool;
 
-/**
- * Class SimplePluginAgent
- *
- * @author Markus Hölzle <markus.hoelzle@pluswerk.ag>
- * @package Pluswerk\CacheAutomation\Agents
- */
-final class SimplePluginAgent extends AbstractAgent
+final readonly class SimplePluginAgent implements AgentInterface
 {
+    public function __construct(protected ConnectionPool $connectionPool)
+    {
+    }
+
     /**
      * Clear caches from pages which contain the configured plugins.
      *
@@ -29,13 +18,10 @@ final class SimplePluginAgent extends AbstractAgent
      *   'pluginKeys' => ['my_plugin_key1', 'my_plugin_key2'],
      * ]
      *
-     * @param string $table
-     * @param int|string $uid
-     * @param array<mixed> $agentConfiguration
-     * @param array<mixed> $changedFields
+     * @param array{pluginKeys: string[]} $agentConfiguration
      * @return int[]
      */
-    public function getExpiredPages(string $table, $uid, array $agentConfiguration, array $changedFields): array
+    public function getExpiredPages(string $table, array $agentConfiguration): array
     {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
         $pluginKeys = [];
